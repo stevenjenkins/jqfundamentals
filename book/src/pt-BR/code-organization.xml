@@ -248,14 +248,14 @@ $(document).ready(myFeature.init);</programlisting>
       <title>O Module Pattern</title>
 
       <example>
-        <title>The module pattern</title>
+        <title>O module pattern</title>
 
         <programlisting>var featureCreator = function() {
-    var privateThing = 'secret',
-        publicThing = 'not secret',
+    var privateThing = 'segredo',
+        publicThing = 'não é segredo',
 
         changePrivateThing = function() {
-            privateThing = 'super secret';
+            privateThing = 'super secreto';
         },
 
         sayPrivateThing = function() {
@@ -270,29 +270,28 @@ $(document).ready(myFeature.init);</programlisting>
 };
 
 var feature = featureCreator();
-feature.publicThing; // 'not secret'
+feature.publicThing; // 'não é segredo'
 feature.sayPrivateThing(); 
-// logs 'secret' and changes the value
-// of privateThing</programlisting>
+// loga 'segredo' e muda o valor de
+// privateThing</programlisting>
       </example>
 
-      <para>In the example above, we create a function featureCreator that
-      returns an object. Inside of the function, we define some variables.
-      Because the variables are defined inside of the function, we don't have
-      access to them outside of the function unless we put them in the return
-      object. This means that no code outside of the function has access to
-      the privateThing variable or to the changePrivateThing function.
-      However, sayPrivateThing does have access to privateThing and
-      changePrivateThing, because both were defined in the same scope as
-      sayPrivateThing.</para>
+      <para>No exemplo acima, nós criamos uma função featureCreator que
+      retorna um objeto. Dentro da função, nós definimos algumas variáveis.
+      Pelo fato das variáveis estarem definidas dentro da função, nós não 
+      temos acesso à ela fora da função, a não ser que nós coloquemos  no
+      objeto de retorno. Isto significa que nenhum código externo da função
+      tem acesso à variável privateThing ou a função changePrivateThing.
+      Entretando, sayPrivateThing tem acesso a privateThing e changePrivateThing,
+      por causa que ambas foram definidas no mesmo escopo de sayPrivateThing.</para>
 
-      <para>This pattern is powerful because, as you can gather from the
-      variable names, it can give you private variables and functions while
-      exposing a limited API consisting of the returned object's properties
-      and methods.</para>
+      <para>Este padrão é poderoso pois, da mesma forma que você pode obter 
+      dos nomes de variáveis, ele pode dar a você variáveis privadas e funções
+      enquanto expõe uma API limitada consistindo das propriedades retornadas
+      dos objetos e métodos.</para>
 
       <example>
-        <title>Using the module pattern for a jQuery feature</title>
+        <title>Usando o module patterns numa funcionalidade do jQuery</title>
 
         <programlisting>$(document).ready(function() {
     var myFeature = (function() {
@@ -352,7 +351,7 @@ feature.sayPrivateThing();
     </section>
 
     <section>
-      <title>Classes and Class-Like Constructs</title>
+      <title>Classes e construtores de classes</title>
 
       <para></para>
     </section>
