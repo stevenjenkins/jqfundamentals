@@ -9,7 +9,7 @@
   <title>Events</title>
 
   <section>
-    <title>Overview</title>
+    <title>Introdução</title>
 
     <para>jQuery provides simple methods for attaching event handlers to
     selections. When an event occurs, the provided function is executed.
