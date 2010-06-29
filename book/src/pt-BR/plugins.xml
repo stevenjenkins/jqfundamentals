@@ -44,23 +44,24 @@
   <section>
     <title>Escrevendo plugins</title>
 
-    <para>Sometimes you want to make a piece of functionality available
-    throughout your code; for example, perhaps you want a single method you
-    can call on a jQuery selection that performs a series of operations on the
-    selection. In this case, you may want to write a plugin.</para>
+    <para>Algumas vezes você irá querer que um pedaço de funcionalidade esteja
+    disponível através do seu código; por exemplo, talvez você queira um único
+    método que você pode chamar em uma seleção do jQuery que faz uma série de
+    operações na seleção. Neste caso, você talvez queira escrever um plugin.</para>
 
-    <para>Most plugins are simply methods created in the <code>$.fn</code>
-    namespace. jQuery guarantees that a method called on a jQuery object will
-    be able to access that jQuery object as <code>this</code> inside the
-    method. In return, your plugin needs to guarantee that it returns the same
-    object it received, unless explicitly documented otherwise.</para>
+    <para>A maioria dos plugins são simples métodos criados no namespace<code>$.fn</code>. 
+    O jQuery garante que o método chamado no objeto jQuery poderá acessar aquele objeto
+    como <code>this</code> dentro do método. Em retorno, seu plugin precisa garantir que
+    ele retorna o mesmo objeto que ele recebeu, a menos que o contrário seja explicitamente 
+    documentado.</para>
 
-    <para>Here is an example of a simple plugin:</para>
+    <para>Aqui vai um exemplo de um plugin simples:</para>
 
     <example>
-      <title>Creating a plugin to add and remove a class on hover</title>
+      <title>Criando um plugin para adicionar e remover uma 
+      classe quando acontecer o evento hover</title>
 
-      <programlisting>// defining the plugin
+      <programlisting>// definindo o plugin
 (function($){
     $.fn.hoverClass = function(c) {
         return this.hover(
@@ -69,13 +70,13 @@
     };
 }(jQuery);
 
-// using the plugin
+// usando o plugin
 $('li').hoverClass('hover');</programlisting>
     </example>
   </section>
 
   <section>
-    <title>Exercises</title>
+    <title>Exercícios</title>
 
     <xi:include href="exercises/sortable-plugin.xml" xpointer="element(/1)" />
 
