@@ -6,18 +6,20 @@
          xmlns:m="http://www.w3.org/1998/Math/MathML"
          xmlns:html="http://www.w3.org/1999/xhtml"
          xmlns:db="http://docbook.org/ns/docbook">
-  <title>JavaScript Basics</title>
+  <title>O Básico de JavaScript</title>
 
   <section>
-    <title>Overview</title>
+    <title>Introdução</title>    
 
-    <para>jQuery is built on top of JavaScript, a rich and expressive language
-    in its own right. This section covers the basic concepts of JavaScript, as
-    well as some frequent pitfalls for people who have not used JavaScript
-    before. While it will be of particular value to people with no programming
-    experience, even people who have used other programming languages may
-    benefit from learning about some of the peculiarities of
-    JavaScript.</para>
+    <para>
+      jQuery é construído sobre JavaScript, uma linguagem rica e expressiva
+      por si só. Esta sessão cobre os conceitos básicos de JavaScript, assim
+      como algumas pegadinhas que aparecem com freqüência para pessoas
+      que ainda não usaram JavaScript. Por enquanto para pessoas sem experiência
+      em programação, até mesmo para aquelas que já programam em outras
+      linguagens, podem se beneficiar de aprender um pouco sobre
+      algumas particularidades de JavaScript.
+    </para>
 
     <para>If you’re interested in learning more about the JavaScript language,
     I highly recommend <citetitle>JavaScript: The Good Parts</citetitle> by
