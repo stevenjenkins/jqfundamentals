@@ -11,32 +11,32 @@
   <section>
     <title>Introdução</title>
 
-    <para>jQuery provides simple methods for attaching event handlers to
-    selections. When an event occurs, the provided function is executed.
-    Inside the function, this refers to the element that was clicked.</para>
+    <para>jQuery provê métodos simples para adicionar eventos manipuladores
+    a seleções. Quando ocorre um evento, a função provida é executada.
+    Dentro da função, o <code>this</code> se refere ao elemento que foi clicado.</para>
 
-    <para>For details on jQuery events, visit <link
+    <para>Para detalhes em eventos jQuery, visite<link
     xlink:href="http://api.jquery.com/category/events/">http://api.jquery.com/category/events/</link>.</para>
 
-    <para>The event handling function can receive an event object. This object
-    can be used to determine the nature of the event, and to prevent the
-    event’s default behavior.</para>
+    <para>A função manipuladora de evento pode receber um objeto de evento. Este objeto
+    pode ser usado para determinar a natureza do evento, e para prevenir o
+    comportamento padrão do evento.</para>
 
-    <para>For details on the event object, visit <link
+    <para>Para detalhes no objeto de evento, visite <link
     xlink:href="http://api.jquery.com/category/events/event-object/">http://api.jquery.com/category/events/event-object/</link>.</para>
   </section>
 
   <section>
-    <title>Connecting Events to Elements</title>
+    <title>Conectando Eventos a Elementos</title>
 
-    <para>jQuery offers convenience methods for most common events, and these
-    are the methods you will see used most often. These methods -- including
+    <para>jQuery oferece métodos convenientes para a maioria dos eventos comuns, e estes
+    são os métodos que você verá mais frequentemente. Estes métodos -- incluem
     <code>$.fn.click</code>, <code>$.fn.focus</code>, <code>$.fn.blur</code>,
-    <code>$.fn.change</code>, etc. -- are shorthand for jQuery's
-    <code>$.fn.bind</code> method. The bind method is useful for binding the
-    same hadler function to multiple events, and is also used when you want to
-    provide data to the event hander, or when you are working with custom
-    events.</para>
+    <code>$.fn.change</code>, etc. -- são atalhos para métodos jQuery
+    <code>$.fn.bind</code>. O método bind é útil para ligar o
+    mesmo manipulador de função a multiplos eventos, e é também usado quando você quer
+    prover dados para o manipulador de evento, ou quando você está trabalhando com eventos
+    customizados.</para>
 
     <example>
       <title>Event binding using a convenience method</title>
@@ -47,7 +47,7 @@
     </example>
 
     <example>
-      <title>Event biding using the <code>$.fn.bind</code> method</title>
+      <title>Event binding using the <code>$.fn.bind</code> method</title>
 
       <programlisting>$('p').bind('click', function() {
     console.log('click');
