@@ -39,7 +39,7 @@
     customizados.</para>
 
     <example>
-      <title>Event binding using a convenience method</title>
+      <title>Binding de Eventos usando métodos de conveniência</title>
 
       <programlisting>$('p').click(function() {
     console.log('click');
