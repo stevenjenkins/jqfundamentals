@@ -299,16 +299,16 @@ foo(); // ao invés de $('p').trigger('click')</programlisting>
     </example>
 
     <section>
-      <title>Unbinding Delegated Events</title>
+      <title>Desatando Eventos Delegados</title>
 
-      <para>If you need to remove delegated events, you can't simply unbind
-      them. Instead, use <code>$.fn.undelegate</code> for events connected
-      with <code>$.fn.delegate</code>, and <code>$.fn.die</code> for events
-      connected with <code>$.fn.live</code>. As with bind, you can optionally
-      pass in the name of the bound function.</para>
+      <para>Se você precisa remover eventos delegados, não pode simplesmente usar
+      unbind neles. Ao invés disso, use <code>$.fn.undelegate</code> para eventos conectados
+      com <code>$.fn.delegate</code>, e <code>$.fn.die</code> para eventos
+      conectados com <code>$.fn.live</code>. Assim como com bind, você pode opcionalmente
+      passar o nome da função ligada ao evento.</para>
 
       <example>
-        <title>Unbinding delegated events</title>
+        <title>Desatando eventos delegados</title>
 
         <programlisting>$('#minhaListaNaoOrdenada').undelegate('li', 'click');
 $('#minhaListaNaoOrdenada li').die('click');</programlisting>
@@ -317,28 +317,28 @@ $('#minhaListaNaoOrdenada li').die('click');</programlisting>
   </section>
 
   <section>
-    <title>Event Helpers</title>
+    <title>Auxiliares de Eventos</title>
 
-    <para>jQuery offers two event-related helper functions that save you a few
-    keystrokes.</para>
+    <para>jQuery oferece duas funções auxiliares relacionadas a eventos que te economizam
+    algumas teclas digitadas.</para>
 
     <section>
       <title><code>$.fn.hover</code></title>
 
-      <para>The <code>$.fn.hover</code> method lets you pass one or two
-      functions to be run when the <code>mouseenter</code> and
-      <code>mouseleave</code> events occur on an element. If you pass one
-      function, it will be run for both events; if you pass two functions, the
-      first will run for <code>mouseenter</code>, and the second will run for
-      <code>mouseleave</code>.</para>
+      <para>O método <code>$.fn.hover</code> deixa você passar uma ou duas
+      funções para serem executadas quando os eventos <code>mouseenter</code> e
+      <code>mouseleave</code> ocorrem em um elemento. Se você passar uma
+      função, ela será executada para ambos os eventos; se passar duas funções, a
+      primeira será executada para <code>mouseenter</code>, e a segunda será executada
+      para <code>mouseleave</code>.</para>
 
       <note>
-        <para>Prior to jQuery 1.4, the <code>$.fn.hover</code> method required
-        two functions.</para>
+        <para>Antes do jQuery 1.4, o método <code>$.fn.hover</code> exigia
+        duas funções.</para>
       </note>
 
       <example>
-        <title>The hover helper function</title>
+        <title>A função auxiliar hover</title>
 
         <programlisting>$('#menu li').hover(function() { 
     $(this).toggleClass('hover'); 
@@ -349,14 +349,14 @@ $('#minhaListaNaoOrdenada li').die('click');</programlisting>
     <section>
       <title><code>$.fn.toggle</code></title>
 
-      <para>Much like <code>$.fn.hover</code>, the <code>$.fn.toggle</code>
-      method receives two or more functions; each time the event occurs, the
-      next function in the list is called. Generally, <code>$.fn.toggle</code>
-      is used with just two functions, but technically you can use as many as
-      you'd like.</para>
+      <para>Assim como <code>$.fn.hover</code>, o método <code>$.fn.toggle</code>
+      recebe duas ou mais funções; cada vez que o evento ocorre, a
+      próxima função na lista é chamada. Geralmente, <code>$.fn.toggle</code>
+      é usado apenas com duas funções, mas tecnicamente você pode usar tantas
+      quantas desejar.</para>
 
       <example>
-        <title>The toggle helper function</title>
+        <title>A função auxiliar toggle</title>
 
         <programlisting>$('p.expander').toggle(
     function() {
