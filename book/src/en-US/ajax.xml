@@ -11,7 +11,7 @@
   <section>
     <title>Overview</title>
 
-    <para>The XMLHttpRequest method (XHR) allows browsers to communicate with the
+    <para>La méthode XMLHttpRequest (XHR) permet browsers to communicate with the
     server without requiring a page reload. This method, also known as Ajax
     (Asynchronous JavaScript and XML), allows for web pages that provide rich,
     interactive experiences.</para>
