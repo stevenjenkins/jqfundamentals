@@ -78,7 +78,7 @@
       este propósito.</para>
 
       <example>
-        <title>Trocando handlers usando o método 
+        <title>Trocando manipuladores usando o método 
         <code>$.fn.one</code></title>
 
         <programlisting>$('p').one('click', function() {
@@ -94,20 +94,20 @@
     <section>
       <title>Desconectando Eventos</title>
 
-      <para>Para desconectar um event handler, você usa o método
+      <para>Para desconectar um manipulador de evento, você usa o método
       <code>$.fn.unbind</code> e passa o tipo de evento para desatar. Se
       você anexou uma função nomeada para o evento, então pode isolar a
       desconexão para essa função nomeada passando-a como o segundo
       argumento.</para>
 
       <example>
-        <title>Desconectando todos os handlers de clique em uma seleção</title>
+        <title>Desconectando todos os manipuladores de clique em uma seleção</title>
 
         <para><programlisting>$('p').unbind('click');</programlisting></para>
       </example>
 
       <example>
-        <title>Desconectando um handler de clique específico</title>
+        <title>Desconectando um manipulador de clique específico</title>
 
         <programlisting>var foo = function() { console.log('foo'); };
 var bar = function() { console.log('bar'); };
@@ -122,7 +122,7 @@ $('p').unbind('click', bar); // foo ainda está ligado ao evento de clique</prog
 
       <para>Para aplicações complexas e para plugins que você compartilha com outros,
       pode ser útil usar um namespace para seus eventos de forma que você não desconecte
-      não intencionalmente eventos sobre os quais você não conhece ou não poderia conhecer.</para>
+      sem querer eventos sobre os quais você não conhece ou não poderia conhecer.</para>
 
       <example>
         <title>Usando Namespaces com eventos</title>
@@ -225,75 +225,75 @@ $('p').unbind('.meuNamespace'); // desconecta todos os eventos no namespace</pro
   </section>
 
   <section>
-    <title>Triggering Event Handlers</title>
+    <title>Disparando Eventos</title>
 
-    <para>jQuery provides a way to trigger the event handlers bound to an
-    element without any user interaction via the <code>$.fn.trigger</code>
-    method. While this method has its uses, it should not be used simply to
-    call a function that was bound as a click handler. Instead, you should
-    store the function you want to call in a variable, and pass the variable
-    name when you do your binding. Then, you can call the function itself
-    whenever you want, without the need for <code>$.fn.trigger</code>.</para>
+    <para>jQuery fornece um jeito de disparar os eventos ligados a um
+    elemento sem qualquer interação do usuário através do método 
+    <code>$.fn.trigger</code>. Enquanto este método tem seus usos, ele não deve ser usado simplesmente
+    para chamar uma função que foi ligada como um tratador de clique. Ao invés disso, você deve
+    armazenar a função que você quer chamar em uma variável, e passar o nome da 
+    variável quando fizer sua ligação. Então você pode chamar a própria função
+    sempre que quiser, sem a necessidade do <code>$.fn.trigger</code>.</para>
 
     <example>
-      <title>Triggering an event handler the right way</title>
+      <title>Disparando um evento do jeito certo</title>
 
       <programlisting>var foo = function(e) { 
     if (e) { 
         console.log(e); 
     } else {
-        console.log('this didn\'t come from an event!');
+        console.log('isto não vem de um evento!');
     }
 };
 
 
 $('p').click(foo); 
 
-foo(); // instead of $('p').trigger('click')</programlisting>
+foo(); // ao invés de $('p').trigger('click')</programlisting>
     </example>
   </section>
 
   <section>
-    <title>Increasing Performance with Event Delegation</title>
+    <title>Aumentando a Performance com Delegação de Evento</title>
 
-    <para>You'll frequently use jQuery to add new elements to the page, and
-    when you do, you may need to bind events to those new elements -- events
-    you already bound to similar elements that were on the page originally.
-    Instead of repeating your event binding every time you add elements to the
-    page, you can use event delegation. With event delegation, you bind your
-    event to a container element, and then when the event occurs, you look to
-    see which contained element it occurred on. If this sounds complicated,
-    luckily jQuery makes it easy with its <code>$.fn.live</code> and
-    <code>$.fn.delegate</code> methods.</para>
+    <para>Você frequentemente usará o jQuery para adicionar novos elementos a página, e
+    quando o faz, pode precisar anexar eventos a esses novos elementos -- eventos que
+    você já anexou a elementos similares que estavam na página originalmente.
+    Ao invés de repetir a ligação de evento toda vez que adiciona elementoos à
+    página, você pode usar delegação de evento. Com delegação de evento você anexa seu
+    evento ao elemento conteiner, e então quando o evento ocorre, você verifica
+    em qual elemento contido ele ocorreu. Se isto soa complicado,
+    por sorte o jQuery facilita com seus métodos <code>$.fn.live</code> e
+    <code>$.fn.delegate</code>.</para>
 
-    <para>While most people discover event delegation while dealing with
-    elements added to the page later, it has some performance benefits even if
-    you never add more elements to the page. The time required to bind event
-    handlers to hundreds of individual elements is non-trivial; if you have a
-    large set of elements, you should consider delegating related events to a
-    container element.</para>
+    <para>Enquanto a maioria das pessoas descobre a delegação de evento ao lidar com
+    elementos adicionados na página depois, isso tem alguns benefícios de performance mesmo se
+    você nunca adiciona mais elementos para a página. O tempo requerido para ligar eventos
+    a centenas de elementos individuais é não-trivial; se você tem um grande
+    conjunto de elementos, deve considerar a delegação de eventos relacionados a
+    um elemento conteiner.</para>
 
     <note>
-      <para>The <code>$.fn.live</code> method was introduced in jQuery 1.3,
-      and at that time only certain event types were supported. As of jQuery
-      1.4.2, the <code>$.fn.delegate</code> method is available, and is the
-      preferred method.</para>
+      <para>O método <code>$.fn.live</code> foi introduzido no jQuery 1.3,
+      e na época apenas certos tipos de eventos eram suportados. Com o jQuery
+      1.4.2, o método <code>$.fn.delegate</code> está disponível, e é o 
+      método preferencial.</para>
     </note>
 
     <example>
-      <title>Event delegation using <code>$.fn.delegate</code></title>
+      <title>Delegação de Evento usando <code>$.fn.delegate</code></title>
 
-      <programlisting>$('#myUnorderedList').delegate('li', 'click', function(e) {
-    var $myListItem = $(this);
+      <programlisting>$('#minhaListaNaoOrdenada').delegate('li', 'click', function(e) {
+    var $meuItemDeLista = $(this);
     // ...
 });</programlisting>
     </example>
 
     <example>
-      <title>Event delegation using <code>$.fn.live</code></title>
+      <title>Delegação de Evento usando <code>$.fn.live</code></title>
 
-      <programlisting>$('#myUnorderedList li').live('click', function(e) {
-    var $myListItem = $(this);
+      <programlisting>$('#minhaListaNaoOrdenada li').live('click', function(e) {
+    var $meuItemDeLista = $(this);
     // ...
 });</programlisting>
     </example>
@@ -310,8 +310,8 @@ foo(); // instead of $('p').trigger('click')</programlisting>
       <example>
         <title>Unbinding delegated events</title>
 
-        <programlisting>$('#myUnorderedList').undelegate('li', 'click');
-$('#myUnorderedList li').die('click');</programlisting>
+        <programlisting>$('#minhaListaNaoOrdenada').undelegate('li', 'click');
+$('#minhaListaNaoOrdenada li').die('click');</programlisting>
       </example>
     </section>
   </section>
