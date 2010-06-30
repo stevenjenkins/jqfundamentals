@@ -11,145 +11,145 @@
   <section>
     <title>Introdução</title>
 
-    <para>jQuery provê métodos simples para adicionar eventos manipuladores
-    a seleções. Quando ocorre um evento, a função provida é executada.
-    Dentro da função, o <code>this</code> se refere ao elemento que foi clicado.</para>
+    <para>jQuery fornece métodos simples para anexar manipuladores de eventos (event handlers) para
+    seleções. Quando um evento ocorre, a função fornecida é executada.
+    Dentro da função, this refere-se ao elemento que foi clicado.</para>
 
-    <para>Para detalhes em eventos jQuery, visite<link
+    <para>Para detalhes sobre eventos do jQuery, visite <link
     xlink:href="http://api.jquery.com/category/events/">http://api.jquery.com/category/events/</link>.</para>
 
     <para>A função manipuladora de evento pode receber um objeto de evento. Este objeto
-    pode ser usado para determinar a natureza do evento, e para prevenir o
+    pode ser usado para determinar a natureza do evento, e para impedir o
     comportamento padrão do evento.</para>
 
-    <para>Para detalhes no objeto de evento, visite <link
+    <para>Para detalhes sobre o objeto de evento, visite <link
     xlink:href="http://api.jquery.com/category/events/event-object/">http://api.jquery.com/category/events/event-object/</link>.</para>
   </section>
 
   <section>
     <title>Conectando Eventos a Elementos</title>
 
-    <para>jQuery oferece métodos convenientes para a maioria dos eventos comuns, e estes
-    são os métodos que você verá mais frequentemente. Estes métodos -- incluem
+    <para>jQuery oferece métodos de conveniência para a maioria dos eventos comuns, e estes
+    são os métodos que você verá sendo usados com mais frequência. Estes métodos -- incluindo 
     <code>$.fn.click</code>, <code>$.fn.focus</code>, <code>$.fn.blur</code>,
-    <code>$.fn.change</code>, etc. -- são atalhos para métodos jQuery
-    <code>$.fn.bind</code>. O método bind é útil para ligar o
-    mesmo manipulador de função a multiplos eventos, e é também usado quando você quer
-    prover dados para o manipulador de evento, ou quando você está trabalhando com eventos
-    customizados.</para>
+    <code>$.fn.change</code>, etc. -- são atalhos para o método <code>$.fn.bind</code> 
+    do jQuery. O método bind é útil para ligar a mesma
+    função a múltiplos eventos, e é também usado quando você quer
+    fornecer dados para o event handler, ou quando você está trabalhando com
+    eventos personalizados.</para>
 
     <example>
-      <title>Binding de Eventos usando métodos de conveniência</title>
+      <title>Ligação de Eventos Usando um Método de Conveniência</title>
 
       <programlisting>$('p').click(function() {
-    console.log('click');
+    console.log('clique');
 });</programlisting>
     </example>
 
     <example>
-      <title>Event binding using the <code>$.fn.bind</code> method</title>
+      <title>Ligação de evento usando o método <code>$.fn.bind</code></title>
 
       <programlisting>$('p').bind('click', function() {
-    console.log('click');
+    console.log('clique');
 });</programlisting>
     </example>
 
     <example>
-      <title>Event binding using the <code>$.fn.bind</code> method with
-      data</title>
+      <title>Ligação de evento usando o método <code>$.fn.bind</code> com
+      dados</title>
 
       <para><programlisting>$('input').bind(
-    'click change',  // bind to multiple events
-    { foo : 'bar' }, // pass in data
+    'click change',  // anexa múltiplos eventos
+    { foo : 'bar' }, // passa dados
 
     function(eventObject) {
         console.log(eventObject.type, eventObject.data);
-        // logs event type, then { foo : 'bar' }
+        // loga o tipo de evento, e então { foo : 'bar' }
     }
 );</programlisting></para>
     </example>
 
     <section>
-      <title>Connecting Events to Run Only Once</title>
+      <title>Conectando Eventos para Executar Apenas uma vez</title>
 
-      <para>Sometimes you need a particular handler to run only once -- after
-      that, you may want no handler to run, or you may want a different
-      handler to run. jQuery provides the <code>$.fn.one</code> method for
-      this purpose.</para>
+      <para>Algumas vezes você precisa que um handler específico execute apenas uma vez -- depois
+      disso, você pode querer que nenhum handler execute, ou pode querer que um handler
+      diferente execute. jQuery fornece o método <code>$.fn.one</code> para
+      este propósito.</para>
 
       <example>
-        <title>Switching handlers using the <code>$.fn.one</code>
-        method</title>
+        <title>Trocando handlers usando o método 
+        <code>$.fn.one</code></title>
 
         <programlisting>$('p').one('click', function() {
-    $(this).click(function() { console.log('You clicked this before!'); });
+    $(this).click(function() { console.log('Você clicou nisto antes!'); });
 });</programlisting>
       </example>
 
-      <para>The <code>$.fn.one</code> method is especially useful if you need
-      to do some complicated setup the first time an element is clicked, but
-      not subsequent times.</para>
+      <para>O método <code>$.fn.one</code> é especialmente útil se você precisa
+      fazer alguma configuração complicada na primeira vez que um elemento é clicado, mas
+      não nas vezes subsequentes.</para>
     </section>
 
     <section>
-      <title>Disconnecting Events</title>
+      <title>Desconectando Eventos</title>
 
-      <para>To disconnect an event handler, you use the
-      <code>$.fn.unbind</code> method and pass in the event type to unbind. If
-      you attached a named function to the event, then you can isolate the
-      unbinding to that named function by passing it as the second
-      argument.</para>
+      <para>Para desconectar um event handler, você usa o método
+      <code>$.fn.unbind</code> e passa o tipo de evento para desatar. Se
+      você anexou uma função nomeada para o evento, então pode isolar a
+      desconexão para essa função nomeada passando-a como o segundo
+      argumento.</para>
 
       <example>
-        <title>Unbinding all click handlers on a selection</title>
+        <title>Desconectando todos os handlers de clique em uma seleção</title>
 
         <para><programlisting>$('p').unbind('click');</programlisting></para>
       </example>
 
       <example>
-        <title>Unbinding a particular click handler</title>
+        <title>Desconectando um handler de clique específico</title>
 
         <programlisting>var foo = function() { console.log('foo'); };
 var bar = function() { console.log('bar'); };
 
 $('p').bind('click', foo).bind('click', bar);
-$('p').unbind('click', bar); // foo is still bound to the click event</programlisting>
+$('p').unbind('click', bar); // foo ainda está ligado ao evento de clique</programlisting>
       </example>
     </section>
 
     <section>
-      <title>Namespacing Events</title>
+      <title>Usando Namespaces com Eventos</title>
 
-      <para>For complex applications and for plugins you share with others, it
-      can be useful to namespace your events so you don't unintentionally
-      disconnect events that you didn't or couldn't know about.</para>
+      <para>Para aplicações complexas e para plugins que você compartilha com outros,
+      pode ser útil usar um namespace para seus eventos de forma que você não desconecte
+      não intencionalmente eventos sobre os quais você não conhece ou não poderia conhecer.</para>
 
       <example>
-        <title>Namespacing events</title>
+        <title>Usando Namespaces com eventos</title>
 
-        <programlisting>$('p').bind('click.myNamespace', function() { /* ... */ });
-$('p').unbind('click.myNamespace');
-$('p').unbind('.myNamespace'); // unbind all events in the namespace</programlisting>
+        <programlisting>$('p').bind('click.meuNamespace', function() { /* ... */ });
+$('p').unbind('click.meuNamespace');
+$('p').unbind('.meuNamespace'); // desconecta todos os eventos no namespace</programlisting>
       </example>
     </section>
   </section>
 
   <section>
-    <title>Inside the Event Handling Function</title>
+    <title>Por Dentro da Função Manipuladora de Evento</title>
 
-    <para>As mentioned in the overview, the event handling function receives
-    an event object, which contains many properties and methods. The event
-    object is most commonly used to prevent the default action of the event
-    via the preventDefault method. However, the event object contains a number
-    of other useful properties and methods, including:</para>
+    <para>Como mencionado na introdução, a função manipuladora de evento recebe
+    um objeto de evento,  que contém muitas propriedades e métodos. O objeto
+    de evento é mais comumente usado para impedir a ação padrão do evento
+    através do método preventDefault. Contudo, o objeto de evento contém vários
+    outros métodos e propriedades úteis, incluindo:</para>
 
     <variablelist>
       <varlistentry>
         <term>pageX, pageY</term>
 
         <listitem>
-          <para>The mouse position at the time the event occurred, relative to
-          the top left of the page.</para>
+          <para>A posição do mouse no momento em que o evento ocorreu, relativa ao
+          ao canto superior esquerdo da página.</para>
         </listitem>
       </varlistentry>
 
@@ -157,7 +157,7 @@ $('p').unbind('.myNamespace'); // unbind all events in the namespace</programlis
         <term>type</term>
 
         <listitem>
-          <para>The type of the event (e.g. "click").</para>
+          <para>O tipo do evento (por ex. "click").</para>
         </listitem>
       </varlistentry>
 
@@ -165,7 +165,7 @@ $('p').unbind('.myNamespace'); // unbind all events in the namespace</programlis
         <term>which</term>
 
         <listitem>
-          <para>The button or key that was pressed.</para>
+          <para>O botão ou tecla que foi pressionado(a).</para>
         </listitem>
       </varlistentry>
 
@@ -173,7 +173,7 @@ $('p').unbind('.myNamespace'); // unbind all events in the namespace</programlis
         <term>data</term>
 
         <listitem>
-          <para>Any data that was passed in when the event was bound.</para>
+          <para>Quaisquer dados que foram passados quando o evento foi anexado.</para>
         </listitem>
       </varlistentry>
 
@@ -181,7 +181,7 @@ $('p').unbind('.myNamespace'); // unbind all events in the namespace</programlis
         <term>target</term>
 
         <listitem>
-          <para>The DOM element that initiated the event.</para>
+          <para>O elemento do DOM que iniciou o evento.</para>
         </listitem>
       </varlistentry>
 
@@ -189,7 +189,7 @@ $('p').unbind('.myNamespace'); // unbind all events in the namespace</programlis
         <term>preventDefault()</term>
 
         <listitem>
-          <para>Prevent the default action of the event (e.g. following a
+          <para>Impede a ação padrão do evento (por ex. seguir um
           link).</para>
         </listitem>
       </varlistentry>
@@ -198,27 +198,27 @@ $('p').unbind('.myNamespace'); // unbind all events in the namespace</programlis
         <term>stopPropagation()</term>
 
         <listitem>
-          <para>Stop the event from bubbling up to other elements.</para>
+          <para>Impede o evento de se propagar (bubble up) para os outros elementos.</para>
         </listitem>
       </varlistentry>
     </variablelist>
 
-    <para>In addition to the event object, the event handling function also
-    has access to the DOM element that the handler was bound to via the
-    keyword <code>this</code>. To turn the DOM element into a jQuery object
-    that we can use jQuery methods on, we simply do <code>$(this)</code>,
-    often following this idiom:</para>
+    <para>Além do objeto de evento, a função manipuladora de evento também
+    tem acesso ao elemento do DOM no qual o evento foi anexado através da
+    palavra-chave <code>this</code>. Para transformar um elemento do DOM em um objeto jQuery
+    no qual podemos usar métodos do jQuery, simplesmente fazemos <code>$(this)</code>,
+    frequentemente seguindo este idioma:</para>
 
     <programlisting>var $this = $(this);</programlisting>
 
     <example>
-      <title>Preventing a link from being followed</title>
+      <title>Impedindo um link de ser seguindo</title>
 
       <programlisting>$('a').click(function(e) {
     var $this = $(this);
-    if ($this.attr('href').match('evil')) {
+    if ($this.attr('href').match('mau')) {
         e.preventDefault();
-        $this.addClass('evil');
+        $this.addClass('mau');
     }
 });</programlisting>
     </example>
