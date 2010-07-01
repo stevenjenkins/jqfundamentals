@@ -6,16 +6,16 @@
          xmlns:m="http://www.w3.org/1998/Math/MathML"
          xmlns:html="http://www.w3.org/1999/xhtml"
          xmlns:db="http://docbook.org/ns/docbook">
-  <title>Write a Table-Striping Plugin</title>
+  <title>Ecrire un Plugin pour Zébrer les Tableaux</title>
 
-  <para>Open the file <filename>/exercises/index.html</filename> in your
-  browser. Use the file <filename>/exercises/js/stripe.js</filename>. Your
-  task is to write a plugin called "stripe" that you can call on any table
-  element. When the plugin is called on a table element, it should change the
-  color of odd rows in the table body to a user-specified color.</para>
+  <para>Ouvrez le fichier <filename>/exercises/index.html</filename> dans votre
+  navigateur. Utilisez le fichier <filename>/exercises/js/stripe.js</filename>. Votre
+  tâche est d'écrire un plugin appelé "stripe" que vous pouvez appeler sur n'importe quel
+  élément table. Quand le plugin est appelé sur un élément table, il doit changer la
+  couleur des lignes paires dans le tableau vers une couleur spécifiée par l'utilisateur.</para>
 
   <programlisting>$('#myTable').stripe('#cccccc');</programlisting>
 
-  <para>Don't forget to return the table so other methods can be chained after
-  the plugin!</para>
+  <para>N'oubliez pas de retourner le tableau pour que d'autres méthodes puissent être chainées
+  après le plugin!</para>
 </section>

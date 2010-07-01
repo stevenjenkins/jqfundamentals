@@ -6,38 +6,38 @@
          xmlns:m="http://www.w3.org/1998/Math/MathML"
          xmlns:html="http://www.w3.org/1999/xhtml"
          xmlns:db="http://docbook.org/ns/docbook">
-	    <title>Traversing</title>
+	    <title>Traverser</title>
 
-	    <para>Open the file <filename>/exercises/index.html</filename> in your
-	    browser. Use the file <filename>/exercises/js/sandbox.js</filename> or
-	    work in Firebug to accomplish the following:</para>
+	    <para>Ouvrez le fichier <filename>/exercises/index.html</filename> dans votre
+	    navigateur. Utilisez le fichier <filename>/exercises/js/sandbox.js</filename> ou
+	    travaillez dans Firebug pour accomplir ce qui suit :</para>
 
 	    <orderedlist>
 	      <listitem>
-	        <para>Select all of the image elements on the page; log each image's
-	        alt attribute.</para>
+	        <para>Sélectionner tous les éléments image de la page ; loguer l'attribut alt
+	        pour chaque image.</para>
 	      </listitem>
 
 	      <listitem>
-	        <para>Select the search input text box, then traverse up to the form
-	        and add a class to the form.</para>
+	        <para>Sélectionner la boîte de texte de recherche input, puis traverser jusqu'au
+	        formulaire et ajouter une classe au formulaire.</para>
 	      </listitem>
 
 	      <listitem>
-	        <para>Select the list item inside #myList that has a class of
-	        "current" and remove that class from it; add a class of "current" to
-	        the next list item.</para>
+	        <para>Sélectionner l'élément dans la liste #myList qui a la classe
+	        "current" et enlever cette classe de l'élément ; ajouter une classe "current" à
+	        l'élément suivant de la liste.</para>
 	      </listitem>
 
 	      <listitem>
-	        <para>Select the select element inside #specials; traverse your way to
-	        the submit button.</para>
+	        <para>Sélectionner l'élément select dans #specials ; traverser jusqu'au
+	        bouton submit.</para>
 	      </listitem>
 
 	      <listitem>
-	        <para>Select the first list item in the #slideshow element; add the
-	        class "current" to it, and then add a class of "disabled" to its
-	        sibling elements.</para>
+	        <para>Sélectionner le premier élément dans la liste #slideshow ; lui ajouter
+	        la classe "current", et ensuite ajouter une classe "disabled" à ses
+	        éléments frères.</para>
 	      </listitem>
 	    </orderedlist>
 </section>
